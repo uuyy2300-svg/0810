@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
+<title>美工妹子 UIdesigner｜服务报价单</title>
+<style>
+:root{
+  --bg:#efe5e3;
+  --bg2:#e7d8d1;
+  --text:#2e2928;
+  --muted:#746a67;
+  --line:rgba(255,255,255,.5);
+  --glass:rgba(255,255,255,.18);
+  --glass2:rgba(255,255,255,.28);
+  --orange:#ff7b2c;
+  --orange2:#ffb16f;
+  --deep:#d94a05;
+  --shadow:0 24px 60px rgba(95,61,47,.14);
+}
+
+*{box-sizing:border-box}
+html{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  margin:0;
+  touch-action:pan-y;
+
+  min-height:100vh;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(255,255,255,.72), transparent 27%),
+    radial-gradient(circle at 84% 20%, rgba(255,165,93,.16), transparent 28%),
+    linear-gradient(160deg,var(--bg) 0%,#e9dedb 48%,var(--bg2) 100%);
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:hidden;
+  overscroll-behavior-x:none;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  opacity:.38;
+  background-image:
+    linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 65%);
+}
+
+.app{
+  position:relative;
+  width:100%;
+  max-width:460px;
+  min-width:0;
+  margin:0 auto;
+  padding-top:16px;
+  padding-bottom:110px;
+  padding-left:max(16px, env(safe-area-inset-left));
+  padding-right:max(16px, env(safe-area-inset-right));
+}
+
+.orb{
+  position:absolute;
+  pointer-events:none;
+  max-width:none;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 34% 24%, #ffd4a8 0%, #ffb172 32%, #ff7a27 68%, #d94b09 100%);
+  box-shadow:
+    inset -12px -14px 28px rgba(148,38,0,.22),
+    inset 9px 8px 20px rgba(255,255,255,.28),
+    0 22px 35px rgba(210,86,28,.24);
+  filter:saturate(.95);
+  z-index:0;
+}
+.orb.o1{width:160px;height:160px;right:-72px;top:72px}
+.orb.o2{width:118px;height:118px;left:-62px;top:310px}
+.orb.o3{width:60px;height:60px;right:18px;top:510px}
+.ring{
+  position:absolute;
+  pointer-events:none;
+  max-width:none;
+  border-radius:50%;
+  border:16px solid rgba(255,126,47,.72);
+  filter:drop-shadow(0 12px 18px rgba(198,84,30,.20));
+  z-index:0;
+}
+
+.ring.r1{width:104px;height:104px;left:52px;top:160px}
+.ring.r2{width:82px;height:82px;right:20px;top:390px;border-width:12px}
+
+/* H5 ambient motion — stronger, more visible; layout remains unchanged */
+.orb.o1{animation:floatOrb1 11s cubic-bezier(.45,.05,.35,.98) infinite alternate;will-change:transform}
+.orb.o2{animation:floatOrb2 13s cubic-bezier(.45,.05,.35,.98) infinite alternate;will-change:transform}
+.orb.o3{animation:floatOrb3 9s ease-in-out infinite alternate;will-change:transform}
+.ring.r1{animation:floatRing1 12s ease-in-out infinite alternate;will-change:transform}
+.ring.r2{animation:floatRing2 14s ease-in-out infinite alternate;will-change:transform}
+.hero::after{animation:heroOrbFloat 12s ease-in-out infinite alternate;will-change:transform}
+
+@keyframes floatOrb1{
+  0%{transform:translate3d(0,0,0) rotate(-3deg) scale(1)}
+  28%{transform:translate3d(-24px,24px,0) rotate(6deg) scale(1.055)}
+  62%{transform:translate3d(16px,50px,0) rotate(-5deg) scale(.965)}
+  100%{transform:translate3d(-12px,78px,0) rotate(4deg) scale(1.035)}
+}
+@keyframes floatOrb2{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}
+  34%{transform:translate3d(32px,-28px,0) rotate(-5deg) scale(1.06)}
+  68%{transform:translate3d(56px,8px,0) rotate(5deg) scale(.955)}
+  100%{transform:translate3d(20px,48px,0) rotate(-3deg) scale(1.035)}
+}
+@keyframes floatOrb3{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  48%{transform:translate3d(-34px,-36px,0) scale(1.12)}
+  100%{transform:translate3d(16px,24px,0) scale(.92)}
+}
+@keyframes floatRing1{
+  0%{transform:translate3d(0,0,0) rotate(-5deg) scale(1)}
+  42%{transform:translate3d(28px,-24px,0) rotate(18deg) scale(1.05)}
+  100%{transform:translate3d(-18px,34px,0) rotate(-14deg) scale(.96)}
+}
+@keyframes floatRing2{
+  0%{transform:translate3d(0,0,0) rotate(3deg) scale(1)}
+  44%{transform:translate3d(-36px,22px,0) rotate(-20deg) scale(.95)}
+  100%{transform:translate3d(22px,-34px,0) rotate(16deg) scale(1.06)}
+}
+@keyframes heroOrbFloat{
+  0%{transform:translate3d(0,0,0) rotate(-2deg) scale(1)}
+  45%{transform:translate3d(-22px,-28px,0) rotate(5deg) scale(1.06)}
+  100%{transform:translate3d(16px,14px,0) rotate(-4deg) scale(.96)}
+}
+
+/* Hero staggered entrance */
+.hero .eyebrow,
+.hero h1,
+.hero .sub,
+.hero .desc,
+.hero .badges{
+  opacity:0;
+  transform:translate3d(0,24px,0);
+  filter:blur(7px);
+  will-change:transform,opacity,filter;
+}
+.hero.is-entered .eyebrow{animation:heroIn .78s .10s cubic-bezier(.2,.8,.2,1) forwards}
+.hero.is-entered h1{animation:heroTitleIn .95s .22s cubic-bezier(.16,.84,.24,1) forwards}
+.hero.is-entered .sub{animation:heroIn .78s .38s cubic-bezier(.2,.8,.2,1) forwards}
+.hero.is-entered .desc{animation:heroIn .82s .52s cubic-bezier(.2,.8,.2,1) forwards}
+.hero.is-entered .badges{animation:heroIn .82s .66s cubic-bezier(.2,.8,.2,1) forwards}
+
+@keyframes heroIn{
+  0%{opacity:0;transform:translate3d(0,28px,0);filter:blur(8px)}
+  65%{opacity:1;filter:blur(0)}
+  100%{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+}
+@keyframes heroTitleIn{
+  0%{opacity:0;transform:translate3d(-12px,34px,0) scale(.94);filter:blur(10px)}
+  58%{opacity:1;transform:translate3d(4px,-3px,0) scale(1.015);filter:blur(0)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+}
+
+/* Scroll reveal for lower sections */
+.reveal{
+  opacity:0;
+  transform:translate3d(0,34px,0) scale(.985);
+  filter:blur(5px);
+  transition:
+    opacity .7s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    filter .7s ease;
+  will-change:transform,opacity,filter;
+}
+.reveal.show{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:blur(0);
+}
+.section-title.reveal{
+  transform:translate3d(-18px,20px,0);
+}
+.section-title.reveal.show{
+  transform:translate3d(0,0,0);
+}
+
+.glass{
+  position:relative;
+  z-index:2;
+  background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.11));
+  border:1px solid rgba(255,255,255,.54);
+  box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.45);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.hero{
+  margin-top:28px;
+  min-height:360px;
+  border-radius:34px;
+  padding:28px 24px 26px;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  right:-70px;bottom:-90px;
+  background:radial-gradient(circle at 30% 20%,rgba(255,210,169,.72),rgba(255,124,43,.85) 48%,rgba(210,70,8,.95) 100%);
+  filter:blur(.2px);
+  box-shadow:inset -18px -18px 40px rgba(128,37,0,.18);
+}
+.hero-inner{position:relative;z-index:2}
+.eyebrow{
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; letter-spacing:.16em;
+  color:#655c59;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(255,123,44,.12)}
+h1{
+  margin:0;
+  font-size:42px;
+  line-height:1.04;
+  letter-spacing:-.05em;
+  font-weight:850;
+}
+.sub{
+  margin:12px 0 0;
+  font-size:16px;
+  color:#5e5653;
+  font-weight:600;
+}
+.desc{
+  margin-top:24px;
+  width:78%;
+  color:#746b68;
+  font-size:13px;
+  line-height:1.75;
+}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.badge{
+  font-size:11px;
+  padding:9px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.27);
+  border:1px solid rgba(255,255,255,.48);
+  color:#5e5552;
+}
+
+.section-title{
+  position:relative;z-index:2;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin:28px 4px 13px;
+}
+.section-title strong{font-size:19px}
+.section-title span{font-size:11px;color:var(--muted)}
+
+.tabs-wrap{
+  position:sticky; top:8px; z-index:20;
+  margin:16px 0 18px;
+  padding:7px;
+  border-radius:18px;
+}
+.tabs{
+  display:flex;
+  gap:7px;
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  overscroll-behavior-x:contain;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;
+  border:0;
+  background:transparent;
+  color:#6e6562;
+  font-size:12px;
+  padding:10px 13px;
+  border-radius:13px;
+  cursor:pointer;
+}
+.tab{
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    box-shadow .3s ease,
+    transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.tab.active{
+  background:rgba(255,255,255,.54);
+  color:#d95210;
+  box-shadow:0 5px 16px rgba(96,57,41,.09);
+  transform:translateY(-1px);
+}
+
+.price-section{
+  display:none;
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:100%;
+}
+.price-section.active{display:block}
+
+/* Category switch: directional horizontal slide */
+.price-section.slide-in-right{
+  display:block;
+  animation:sectionInRight .48s cubic-bezier(.22,.78,.22,1) both;
+}
+.price-section.slide-in-left{
+  display:block;
+  animation:sectionInLeft .48s cubic-bezier(.22,.78,.22,1) both;
+}
+.price-section.slide-out-left{
+  display:block;
+  pointer-events:none;
+  animation:sectionOutLeft .28s cubic-bezier(.4,0,.6,1) both;
+}
+.price-section.slide-out-right{
+  display:block;
+  pointer-events:none;
+  animation:sectionOutRight .28s cubic-bezier(.4,0,.6,1) both;
+}
+
+@keyframes sectionInRight{
+  0%{opacity:0;transform:translate3d(42px,0,0);filter:blur(3px)}
+  100%{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+}
+@keyframes sectionInLeft{
+  0%{opacity:0;transform:translate3d(-42px,0,0);filter:blur(3px)}
+  100%{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+}
+@keyframes sectionOutLeft{
+  0%{opacity:1;transform:translate3d(0,0,0)}
+  100%{opacity:0;transform:translate3d(-34px,0,0)}
+}
+@keyframes sectionOutRight{
+  0%{opacity:1;transform:translate3d(0,0,0)}
+  100%{opacity:0;transform:translate3d(34px,0,0)}
+}
+
+.card{
+  border-radius:24px;
+  padding:8px 14px;
+  margin-bottom:12px;
+}
+.price-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;
+  align-items:center;
+  padding:17px 3px;
+  border-bottom:1px solid rgba(255,255,255,.44);
+}
+.price-row:last-child{border-bottom:0}
+.item-name{
+  font-size:15px;
+  font-weight:720;
+}
+.item-note{
+  display:block;
+  margin-top:5px;
+  font-size:11px;
+  color:#7d716d;
+  font-weight:500;
+}
+.price{
+  text-align:right;
+  font-size:15px;
+  font-weight:850;
+  color:#d9510f;
+  white-space:nowrap;
+}
+.price small{
+  display:block;
+  color:#8d7770;
+  font-size:10px;
+  margin-top:5px;
+  font-weight:600;
+}
+
+.video-card{
+  border-radius:24px;
+  padding:12px 12px 7px;
+  margin-bottom:12px;
+}
+.video-head{
+  display:grid;
+  grid-template-columns:1.15fr .9fr .72fr .65fr;
+  gap:8px;
+  padding:9px 7px 12px;
+  font-size:10px;
+  color:#786b67;
+  font-weight:700;
+}
+.video-row{
+  display:grid;
+  grid-template-columns:1.15fr .9fr .72fr .65fr;
+  gap:8px;
+  align-items:center;
+  padding:15px 7px;
+  border-top:1px solid rgba(255,255,255,.42);
+  font-size:11px;
+}
+.video-row b{font-size:12px}
+.video-row .vprice{color:#d9510f;font-weight:800}
+
+.notice{
+  border-radius:24px;
+  padding:22px 20px;
+  margin-top:18px;
+}
+.notice h3{margin:0 0 8px;font-size:17px}
+.notice p{margin:0;color:#736864;font-size:12px;line-height:1.8}
+.flow{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.flow span{
+  font-size:10px;
+  background:rgba(255,255,255,.31);
+  border:1px solid rgba(255,255,255,.48);
+  padding:8px 10px;border-radius:999px;
+}
+.quote{
+  position:relative;z-index:2;
+  margin:28px 3px 10px;
+  padding:22px 0 4px;
+}
+.quote .big{
+  font-size:25px;
+  line-height:1.25;
+  font-weight:850;
+  letter-spacing:-.03em;
+}
+.quote p{
+  margin:12px 0 0;
+  max-width:88%;
+  color:#776d69;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.cta{
+  position:fixed;
+  left:50%; transform:translateX(-50%);
+  bottom:14px;
+  z-index:40;
+  width:min(calc(100% - 28px),432px);
+  padding:10px;
+  border-radius:20px;
+  background:rgba(65,51,45,.78);
+  border:1px solid rgba(255,255,255,.20);
+  box-shadow:0 16px 35px rgba(64,47,41,.24);
+  backdrop-filter:blur(18px);
+}
+.cta-inner{display:flex;align-items:center;gap:10px}
+.cta-copy{flex:1;color:white;padding-left:7px}
+.cta-copy b{display:block;font-size:12px}
+.cta-copy span{font-size:10px;opacity:.62}
+.cta button{
+  border:0;
+  color:white;
+  background:linear-gradient(135deg,#ff9e55,#ef5e18);
+  padding:13px 18px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:12px;
+  box-shadow:0 9px 16px rgba(203,70,9,.25);
+}
+.toast{
+  position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);
+  z-index:60;
+  background:#2f2927;color:white;
+  padding:11px 16px;border-radius:999px;
+  opacity:0;pointer-events:none;transition:.25s;
+  font-size:12px;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+
+
+/* Mobile width hardening */
+.hero,
+.tabs-wrap,
+.price-section,
+.card,
+.video-card,
+.notice,
+.quote{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
+
+.hero-inner,
+.price-row > *,
+.video-row > *,
+.video-head > *,
+.contact-main{
+  min-width:0;
+}
+
+.desc,
+.item-name,
+.item-note,
+.contact-value,
+.notice p,
+.quote p{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.tabs-wrap{
+  overflow:hidden;
+}
+
+.tabs{
+  width:100%;
+  max-width:100%;
+}
+
+@media (max-width:480px){
+  html,body{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  body{
+    position:relative;
+    margin:0 !important;
+  }
+
+  .app{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin:0 !important;
+    left:0 !important;
+    right:auto !important;
+  }
+
+  /* Keep stronger sphere motion, but never let it create horizontal page width */
+  .orb,.ring{
+    contain:paint;
+  }
+
+  .hero{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .cta{
+    width:calc(100% - 28px);
+    max-width:432px;
+  }
+}
+
+/* Contact bottom sheet */
+.contact-mask{
+  position:fixed;
+  inset:0;
+  z-index:80;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:14px;
+  background:rgba(46,38,35,.26);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .28s ease,visibility .28s ease;
+}
+.contact-mask.show{opacity:1;visibility:visible}
+.contact-sheet{
+  width:min(100%,432px);
+  position:relative;
+  border-radius:30px;
+  padding:13px 14px 18px;
+  background:
+    radial-gradient(circle at 88% 4%,rgba(255,169,100,.30),transparent 28%),
+    linear-gradient(145deg,rgba(255,255,255,.73),rgba(248,236,231,.57));
+  border:1px solid rgba(255,255,255,.74);
+  box-shadow:0 28px 80px rgba(63,41,33,.25), inset 0 1px 0 rgba(255,255,255,.8);
+  backdrop-filter:blur(26px);
+  -webkit-backdrop-filter:blur(26px);
+  transform:translateY(34px) scale(.985);
+  transition:transform .34s cubic-bezier(.2,.85,.3,1);
+  overflow:hidden;
+}
+.contact-mask.show .contact-sheet{transform:translateY(0) scale(1)}
+.contact-sheet::after{
+  content:"";
+  position:absolute;
+  width:124px;height:124px;
+  border-radius:50%;
+  right:-48px;top:-54px;
+  background:radial-gradient(circle at 30% 22%,#ffd4ac,#ff9d55 48%,#e85816 100%);
+  opacity:.78;
+  filter:blur(.2px);
+  pointer-events:none;
+}
+.sheet-grip{
+  width:38px;height:4px;border-radius:999px;
+  background:rgba(80,67,62,.18);
+  margin:2px auto 17px;
+}
+.sheet-top{
+  position:relative;z-index:2;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:0 6px 14px;
+}
+.sheet-title{font-size:21px;font-weight:850;letter-spacing:-.03em}
+.sheet-sub{font-size:11px;color:#7b6f6b;margin-top:5px;line-height:1.6}
+.sheet-close{
+  position:relative;z-index:4;
+  width:34px;height:34px;border:0;border-radius:50%;
+  background:rgba(255,255,255,.5);color:#645853;
+  font-size:20px;line-height:1;cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);
+}
+.contact-list{position:relative;z-index:2;display:grid;gap:9px}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 13px;
+  border-radius:18px;
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.62);
+}
+.contact-icon{
+  width:42px;height:42px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,220,194,.72));
+  box-shadow:0 8px 18px rgba(108,67,48,.08);
+  font-size:18px;
+}
+.contact-main{flex:1;min-width:0}
+.contact-label{font-size:10px;color:#887872;margin-bottom:4px}
+.contact-value{font-size:14px;font-weight:800;word-break:break-all}
+.copy-mini{
+  border:0;
+  padding:8px 10px;
+  border-radius:11px;
+  background:rgba(255,120,42,.11);
+  color:#d85210;
+  font-size:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.contact-tip{
+  position:relative;z-index:2;
+  padding:14px 7px 3px;
+  color:#887873;
+  font-size:10px;
+  line-height:1.65;
+}
+body.modal-open{overflow:hidden}
+
+@media (prefers-reduced-motion:reduce){
+  .orb,.ring,.hero::after{animation:none!important}
+  .hero .eyebrow,.hero h1,.hero .sub,.hero .desc,.hero .badges{
+    opacity:1!important;transform:none!important;filter:none!important;animation:none!important
+  }
+  .reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .price-section.slide-in-right,
+  .price-section.slide-in-left,
+  .price-section.slide-out-left,
+  .price-section.slide-out-right{animation:none!important}
+  .tab{transition:none!important}
+  .contact-mask,.contact-sheet{transition:none!important}
+}
+
+@media (max-width:360px){
+  h1{font-size:37px}
+  .hero{padding-left:20px;padding-right:20px}
+  .video-head,.video-row{grid-template-columns:1.05fr .85fr .68fr .58fr;gap:5px}
+  .video-row{font-size:10px}
+}
+</style>
+</head>
+<body>
+  <main class="app">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+
+    <section class="hero glass">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> UIdesigner · Service Price</div>
+        <h1>服务<br>报价单</h1>
+        <div class="sub">美工妹子 UIdesigner</div>
+        <p class="desc">10年居家自由设计师，专注 UI / 品牌视觉 / 电商 / 视频 / AI 创意。个人设计师直接对接，沟通更简单。</p>
+        <div class="badges">
+          <span class="badge">大小项目都接</span>
+          <span class="badge">长期合作可谈</span>
+          <span class="badge">支持定制需求</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tabs-wrap glass">
+      <div class="tabs">
+        <button class="tab active" data-target="ui">UI设计</button>
+        <button class="tab" data-target="brand">品牌视觉</button>
+        <button class="tab" data-target="ecom">电商设计</button>
+        <button class="tab" data-target="video">视频剪辑</button>
+        <button class="tab" data-target="ai">AI定制</button>
+      </div>
+    </div>
+
+    <section id="ui" class="price-section active">
+      <div class="section-title"><strong>01 / UI · 界面设计</strong><span>UI DESIGN</span></div>
+      <div class="card glass">
+        <div class="price-row"><div><span class="item-name">APP UI设计</span><span class="item-note">主界面 ¥500+</span></div><div class="price">¥150+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">小程序设计</span><span class="item-note">主界面 ¥500+</span></div><div class="price">¥150+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">Web网页设计</span><span class="item-note">主界面 ¥700+</span></div><div class="price">¥150+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">后台管理系统</span><span class="item-note">主界面 ¥700+</span></div><div class="price">¥150+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">数据可视化大屏</span></div><div class="price">¥800+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">原型图设计</span><span class="item-note">低保真 / 产品原型</span></div><div class="price">¥50+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">图标设计</span></div><div class="price">¥20+ / 个</div></div>
+        <div class="price-row"><div><span class="item-name">运营 Banner</span></div><div class="price">¥50+ / 个</div></div>
+        <div class="price-row"><div><span class="item-name">界面动效 / UI动图</span></div><div class="price">¥100+ / 个</div></div>
+        <div class="price-row"><div><span class="item-name">UI整套设计</span><span class="item-note">50页以内</span></div><div class="price">¥4500～5500+<small>/ 套</small></div></div>
+      </div>
+    </section>
+
+    <section id="brand" class="price-section">
+      <div class="section-title"><strong>02 / 品牌 · 视觉设计</strong><span>BRAND DESIGN</span></div>
+      <div class="card glass">
+        <div class="price-row"><div><span class="item-name">LOGO / 标志设计</span></div><div class="price">¥350+ / 项</div></div>
+        <div class="price-row"><div><span class="item-name">KV主视觉设计</span></div><div class="price">¥350+ / 页</div></div>
+        <div class="price-row"><div><span class="item-name">IP全案设计</span></div><div class="price">¥800+ / 套</div></div>
+        <div class="price-row"><div><span class="item-name">表情包设计</span></div><div class="price">¥400+ / 套</div></div>
+        <div class="price-row"><div><span class="item-name">PPT设计</span></div><div class="price">¥40+ / 页</div></div>
+      </div>
+    </section>
+
+    <section id="ecom" class="price-section">
+      <div class="section-title"><strong>03 / 电商设计</strong><span>E-COMMERCE</span></div>
+      <div class="card glass">
+        <div class="price-row"><div><span class="item-name">主图设计</span></div><div class="price">¥80～200 / 张</div></div>
+        <div class="price-row"><div><span class="item-name">详情页设计</span></div><div class="price">¥100～300 / 张</div></div>
+        <div class="price-row"><div><span class="item-name">公众号长图设计</span></div><div class="price">¥100～300 / 张</div></div>
+        <div class="price-row"><div><span class="item-name">Banner设计</span></div><div class="price">¥100～300 / 张</div></div>
+        <div class="price-row"><div><span class="item-name">宣传长图设计</span></div><div class="price">¥200～300 / 张</div></div>
+        <div class="price-row"><div><span class="item-name">店铺首页设计</span></div><div class="price">¥200～300 / 张</div></div>
+      </div>
+    </section>
+
+    <section id="video" class="price-section">
+      <div class="section-title"><strong>04 / 短视频剪辑 · 动效</strong><span>VIDEO</span></div>
+      <div class="video-card glass">
+        <div class="video-head"><div>项目</div><div>时长</div><div>价格</div><div>起剪</div></div>
+        <div class="video-row"><b>IP口播类</b><span>30/60/90s</span><span class="vprice">40/70/100</span><span>5条</span></div>
+        <div class="video-row"><b>团购信息流</b><span>15/30s</span><span class="vprice">20/30</span><span>10条</span></div>
+        <div class="video-row"><b>Vlog</b><span>1-3/3-5min</span><span class="vprice">100/150</span><span>—</span></div>
+        <div class="video-row"><b>采访/访谈</b><span>1-5/5-10min</span><span class="vprice">300/500</span><span>—</span></div>
+        <div class="video-row"><b>活动花絮</b><span>15/30/60s</span><span class="vprice">200/300/500</span><span>—</span></div>
+        <div class="video-row"><b>产品介绍</b><span>30/60/90s</span><span class="vprice">40/70/100</span><span>5条</span></div>
+        <div class="video-row"><b>产品展示</b><span>30/60/90s</span><span class="vprice">20/40/60</span><span>10条</span></div>
+      </div>
+      <div class="card glass">
+        <div class="price-row"><div><span class="item-name">产品宣传短视频</span><span class="item-note">根据复杂度另计</span></div><div class="price">¥100+ / 5s</div></div>
+      </div>
+      <div class="notice glass">
+        <h3>剪辑可包含</h3>
+        <p>字幕 · 卡点 · 气口处理 · 基础包装 · 美化 · 特效 · 调色。具体根据素材量与制作难度报价。</p>
+      </div>
+    </section>
+
+    <section id="ai" class="price-section">
+      <div class="section-title"><strong>05 / AI · 定制服务</strong><span>AI CUSTOM</span></div>
+      <div class="card glass">
+        <div class="price-row"><div><span class="item-name">个人网页制作 HTML</span></div><div class="price">¥300+ / 项</div></div>
+        <div class="price-row"><div><span class="item-name">AI定制歌曲</span></div><div class="price">¥150+ / 首</div></div>
+        <div class="price-row"><div><span class="item-name">AI产品宣传视频</span></div><div class="price">¥100+ / 5s</div></div>
+      </div>
+      <div class="notice glass">
+        <h3>更多创意定制</h3>
+        <p>支持其他 AI 视觉、宣传内容、创意页面等定制需求，可根据项目单独沟通报价。</p>
+      </div>
+    </section>
+
+    <div class="section-title"><strong>合作说明</strong><span>WORKFLOW</span></div>
+    <section class="notice glass">
+      <h3>以上均为参考起步价</h3>
+      <p>实际费用会根据页面数量、设计难度、内容复杂程度、交付周期、修改量、动效需求综合评估。急单、高复杂度或超出常规修改范围，价格另议。长期合作 / 批量项目可优惠。</p>
+      <div class="flow">
+        <span>沟通需求</span><span>确认报价</span><span>支付定金</span><span>排期设计</span><span>修改确认</span><span>尾款交付</span>
+      </div>
+    </section>
+
+    <section class="quote">
+      <div class="big">一个人在家做设计的<br>第 10 年。</div>
+      <p>没有复杂流程，也没有层层转达。你的需求，直接和设计师本人沟通。UI、网页、品牌、电商、视频、AI 都可以聊。</p>
+    </section>
+  </main>
+
+  <div class="cta">
+    <div class="cta-inner">
+      <div class="cta-copy">
+        <b>有设计需求，直接发过来</b>
+        <span>能不能做 · 多少钱 · 多久完成</span>
+      </div>
+      <button id="copyBtn">咨询合作</button>
+    </div>
+  </div>
+  <div class="toast" id="toast">已复制</div>
+
+  <div class="contact-mask" id="contactMask" aria-hidden="true">
+    <div class="contact-sheet" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <div class="sheet-grip"></div>
+      <div class="sheet-top">
+        <div>
+          <div class="sheet-title" id="contactTitle">咨询合作</div>
+          <div class="sheet-sub">欢迎直接联系我，备注一下你的项目类型和需求就好。</div>
+        </div>
+        <button class="sheet-close" id="closeContact" aria-label="关闭">×</button>
+      </div>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-icon">微</div>
+          <div class="contact-main">
+            <div class="contact-label">微信</div>
+            <div class="contact-value">xashellion1</div>
+          </div>
+          <button class="copy-mini" data-copy="xashellion1">复制</button>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">红</div>
+          <div class="contact-main">
+            <div class="contact-label">小红书</div>
+            <div class="contact-value">美工妹子</div>
+          </div>
+          <button class="copy-mini" data-copy="美工妹子">复制</button>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">抖</div>
+          <div class="contact-main">
+            <div class="contact-label">抖音</div>
+            <div class="contact-value">美工妹子</div>
+          </div>
+          <button class="copy-mini" data-copy="美工妹子">复制</button>
+        </div>
+      </div>
+
+      <div class="contact-tip">微信 / 小红书 / 抖音均可联系 · 大小项目都接 · 长期合作可沟通</div>
+    </div>
+  </div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const sections = document.querySelectorAll('.price-section');
+
+let activeTabIndex = [...tabs].findIndex(t=>t.classList.contains('active'));
+let tabAnimating = false;
+
+tabs.forEach((tab, nextIndex)=>{
+  tab.addEventListener('click',()=>{
+    if(tabAnimating || nextIndex === activeTabIndex) return;
+
+    const currentTab = tabs[activeTabIndex];
+    const currentSection = document.getElementById(currentTab.dataset.target);
+    const nextSection = document.getElementById(tab.dataset.target);
+    const movingRight = nextIndex > activeTabIndex;
+
+    tabAnimating = true;
+
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Only scroll the category bar itself.
+    // Do NOT use scrollIntoView(): some Android in-app browsers horizontally
+    // scroll the entire document when selecting tabs near the right edge.
+    const tabsScroller = document.querySelector('.tabs');
+    const targetLeft =
+      tab.offsetLeft - (tabsScroller.clientWidth - tab.offsetWidth) / 2;
+
+    tabsScroller.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior:'smooth'
+    });
+
+    // Hard lock document horizontal position.
+    if(window.scrollX !== 0){
+      window.scrollTo(0, window.scrollY);
+    }
+
+    currentSection.classList.remove('active','slide-in-right','slide-in-left');
+    nextSection.classList.remove('active','slide-out-left','slide-out-right');
+
+    currentSection.classList.add(movingRight ? 'slide-out-left' : 'slide-out-right');
+    nextSection.classList.add(movingRight ? 'slide-in-right' : 'slide-in-left');
+
+    // Preserve existing page behavior: return to category content area.
+    const tabsTop = document.querySelector('.tabs-wrap').offsetTop - 8;
+    window.scrollTo({top:tabsTop, behavior:'smooth'});
+
+    const cleanup = ()=>{
+      currentSection.classList.remove('slide-out-left','slide-out-right');
+      nextSection.classList.remove('slide-in-right','slide-in-left');
+      nextSection.classList.add('active');
+      activeTabIndex = nextIndex;
+      tabAnimating = false;
+
+      // Some mobile browsers may retain a tiny horizontal document offset
+      // after transformed panels. Reset only X, preserve the current Y.
+      if(window.scrollX !== 0){
+        window.scrollTo(0, window.scrollY);
+      }
+
+      // Re-trigger reveal elements inside newly selected category if needed.
+      nextSection.querySelectorAll('.reveal').forEach(el=>{
+        requestAnimationFrame(()=>el.classList.add('show'));
+      });
+    };
+
+    setTimeout(cleanup, 500);
+  });
+});
+
+const contactMask = document.getElementById('contactMask');
+const closeContact = document.getElementById('closeContact');
+const toast = document.getElementById('toast');
+
+function openContact(){
+  contactMask.classList.add('show');
+  contactMask.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+}
+function hideContact(){
+  contactMask.classList.remove('show');
+  contactMask.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+}
+function showToast(text='已复制'){
+  toast.textContent = text;
+  toast.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(()=>toast.classList.remove('show'),1600);
+}
+
+document.getElementById('copyBtn').addEventListener('click', openContact);
+closeContact.addEventListener('click', hideContact);
+
+contactMask.addEventListener('click', (e)=>{
+  if(e.target === contactMask) hideContact();
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && contactMask.classList.contains('show')) hideContact();
+});
+
+document.querySelectorAll('[data-copy]').forEach(btn=>{
+  btn.addEventListener('click', async ()=>{
+    const text = btn.dataset.copy;
+    try{
+      await navigator.clipboard.writeText(text);
+      showToast('已复制：' + text);
+    }catch(e){
+      showToast(text);
+    }
+  });
+});
+
+/* Entrance motion without changing layout */
+
+/* Mobile browsers can occasionally restore an old horizontal scroll offset.
+   Force x=0 without affecting vertical position. */
+window.addEventListener('scroll', ()=>{
+  if(window.scrollX !== 0){
+    window.scrollTo(0, window.scrollY);
+  }
+}, {passive:true});
+
+window.addEventListener('pageshow', ()=>{
+  if(window.scrollX !== 0){
+    window.scrollTo(0, window.scrollY);
+  }
+});
+window.addEventListener('orientationchange', ()=>{
+  setTimeout(()=>window.scrollTo(0, window.scrollY), 80);
+});
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  requestAnimationFrame(()=>{
+    document.querySelector('.hero')?.classList.add('is-entered');
+  });
+
+  const revealTargets = [
+    ...document.querySelectorAll('.section-title'),
+    ...document.querySelectorAll('.price-section .card'),
+    ...document.querySelectorAll('.price-section .video-card'),
+    ...document.querySelectorAll('.price-section .notice'),
+    ...document.querySelectorAll('main > .notice'),
+    ...document.querySelectorAll('.quote')
+  ];
+
+  revealTargets.forEach((el, index)=>{
+    el.classList.add('reveal');
+    el.style.transitionDelay = Math.min((index % 4) * 55, 165) + 'ms';
+  });
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -7% 0px'});
+
+  revealTargets.forEach(el=>io.observe(el));
+});
+
+</script>
+</body>
+</html>
